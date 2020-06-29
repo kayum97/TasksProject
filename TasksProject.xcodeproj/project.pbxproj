@@ -14,7 +14,7 @@
 		4766C9AF24AA16DD00EFB09E /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4766C9AE24AA16DD00EFB09E /* UIColorExtension.swift */; };
 		4766C9B124AA18F900EFB09E /* TaskDetailsPresentor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4766C9B024AA18F900EFB09E /* TaskDetailsPresentor.swift */; };
 		4766C9B324AA1EC300EFB09E /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4766C9B224AA1EC300EFB09E /* DateExtension.swift */; };
-		841D0BCD24A1F86E009CCDFC /* CalendarTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841D0BCC24A1F86E009CCDFC /* CalendarTableViewCell.swift */; };
+		841D0BCD24A1F86E009CCDFC /* TaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841D0BCC24A1F86E009CCDFC /* TaskTableViewCell.swift */; };
 		841D0BCF24A1F8DD009CCDFC /* TaskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841D0BCE24A1F8DC009CCDFC /* TaskModel.swift */; };
 		841D0BD124A1F92E009CCDFC /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841D0BD024A1F92E009CCDFC /* Parser.swift */; };
 		841D0BD324A1F9D8009CCDFC /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = 841D0BD224A1F9D8009CCDFC /* data.json */; };
@@ -34,7 +34,7 @@
 		4766C9AE24AA16DD00EFB09E /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		4766C9B024AA18F900EFB09E /* TaskDetailsPresentor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailsPresentor.swift; sourceTree = "<group>"; };
 		4766C9B224AA1EC300EFB09E /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
-		841D0BCC24A1F86E009CCDFC /* CalendarTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarTableViewCell.swift; sourceTree = "<group>"; };
+		841D0BCC24A1F86E009CCDFC /* TaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTableViewCell.swift; sourceTree = "<group>"; };
 		841D0BCE24A1F8DC009CCDFC /* TaskModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskModel.swift; sourceTree = "<group>"; };
 		841D0BD024A1F92E009CCDFC /* Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
 		841D0BD224A1F9D8009CCDFC /* data.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
@@ -128,7 +128,7 @@
 		841D0BCB24A1F39F009CCDFC /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				841D0BCC24A1F86E009CCDFC /* CalendarTableViewCell.swift */,
+				841D0BCC24A1F86E009CCDFC /* TaskTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -255,7 +255,7 @@
 				4766398924A9309A005784CA /* TasksService.swift in Sources */,
 				4766398E24A93C7D005784CA /* DateHelper.swift in Sources */,
 				4766C9AF24AA16DD00EFB09E /* UIColorExtension.swift in Sources */,
-				841D0BCD24A1F86E009CCDFC /* CalendarTableViewCell.swift in Sources */,
+				841D0BCD24A1F86E009CCDFC /* TaskTableViewCell.swift in Sources */,
 				4766398B24A93157005784CA /* TasksListPresentor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

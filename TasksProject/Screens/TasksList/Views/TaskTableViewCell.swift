@@ -1,5 +1,5 @@
 //
-//  CalendarTableViewCell.swift
+//  TaskTableViewCell.swift
 //  TasksProject
 //
 //  Created by Admin on 23.06.2020.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CalendarTableViewCell: UITableViewCell {
+class TaskTableViewCell: UITableViewCell {
 
     class var cellHeight: CGFloat {
         return 60
@@ -32,38 +32,41 @@ class CalendarTableViewCell: UITableViewCell {
         dayLabel.text = "\(rowIndex):00"
         
         guard let task = task,
-            let hoursStart = DateHelper.hoursAsInt(fromDate: task.dateStart),
-            let hoursFinish = DateHelper.hoursAsInt(fromDate: task.dateFinish) else {
+            let taskViewLayout = calculateTaskViewLayout(withTask: task, rowIndex: rowIndex) else {
             nameLabel.text = nil
             return
         }
         
         nameLabel.backgroundColor = color
-        nameLabel.text = task.name
+        nameLabel.text = "\(DateHelper.timeAsString(date: task.dateStart))-\(DateHelper.timeAsString(date: task.dateFinish)) \(task.name)"
+        
+        nameLabelTopConstraint.constant = taskViewLayout.topOffset
+        nameLabelHeightConstraint.constant = taskViewLayout.height < minimalTaskViewHeight ? minimalTaskViewHeight : taskViewLayout.height
+    }
+    
+    private func calculateTaskViewLayout(withTask task: Task, rowIndex: Int) -> (topOffset: CGFloat, height: CGFloat)? {
+        guard let hoursStart = DateHelper.hoursAsInt(fromDate: task.dateStart),
+            let hoursFinish = DateHelper.hoursAsInt(fromDate: task.dateFinish) else { return nil }
         
         if rowIndex == hoursStart && rowIndex == hoursFinish {
             let calculatedHeight = CGFloat(distanceInMinutes(from: task.dateStart, to: task.dateFinish) ?? 0)
-            nameLabelHeightConstraint.constant = calculatedHeight < minimalTaskViewHeight ? minimalTaskViewHeight : calculatedHeight
-            nameLabelTopConstraint.constant = CGFloat(DateHelper.minutesAsInt(fromDate: task.dateStart) ?? 0)
-            return
+            let topOffset = CGFloat(DateHelper.minutesAsInt(fromDate: task.dateStart) ?? 0)
+            return (topOffset: topOffset, height: calculatedHeight)
         }
         if rowIndex == hoursStart && rowIndex < hoursFinish {
             let topOffset = CGFloat(DateHelper.minutesAsInt(fromDate: task.dateStart) ?? 0)
-            let calculatedHeight = CalendarTableViewCell.cellHeight - topOffset
-            nameLabelTopConstraint.constant = topOffset
-            nameLabelHeightConstraint.constant = calculatedHeight < minimalTaskViewHeight ? minimalTaskViewHeight : calculatedHeight
-            return
+            let calculatedHeight = TaskTableViewCell.cellHeight - topOffset
+            return (topOffset: topOffset, height: calculatedHeight)
         }
         if rowIndex > hoursStart && rowIndex == hoursFinish {
             let calculatedHeight = CGFloat(DateHelper.minutesAsInt(fromDate: task.dateFinish) ?? 0)
-            nameLabelTopConstraint.constant = 0
-            nameLabelHeightConstraint.constant = calculatedHeight < minimalTaskViewHeight ? minimalTaskViewHeight : calculatedHeight
-            return
+            return (topOffset: 0, height: calculatedHeight)
         }
         if rowIndex > hoursStart && rowIndex < hoursFinish {
-            nameLabelTopConstraint.constant = 0
-            nameLabelHeightConstraint.constant = CalendarTableViewCell.cellHeight
+            return (topOffset: 0, height: TaskTableViewCell.cellHeight)
         }
+        
+        return nil
     }
     
     private func distanceInMinutes(from dateStart: Date?, to dateEnd: Date?) -> Int? {

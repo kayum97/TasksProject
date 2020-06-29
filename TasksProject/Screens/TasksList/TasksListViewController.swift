@@ -56,7 +56,7 @@ extension TasksListViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-       guard let cell = tableView.dequeueReusableCell(withIdentifier: "dataCell", for: indexPath) as? CalendarTableViewCell else {
+       guard let cell = tableView.dequeueReusableCell(withIdentifier: "TaskTableViewCell", for: indexPath) as? TaskTableViewCell else {
             return UITableViewCell()
        }
         
@@ -69,7 +69,7 @@ extension TasksListViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return CalendarTableViewCell.cellHeight
+        return TaskTableViewCell.cellHeight
     }
 }
 

@@ -15,9 +15,15 @@ class DateHelper {
         return formatter.string(from: date)
     }
     
-    class func dateTimeAsString(date: Date) -> String? {
+    class func dateTimeAsString(date: Date) -> String {
         let formatter = DateFormatter()
         formatter.dateFormat = "dd.MM.yyyy HH:mm"
+        return formatter.string(from: date)
+    }
+    
+    class func timeAsString(date: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "HH:mm"
         return formatter.string(from: date)
     }
         
